@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} Add Attendance {% endblock %}
+
+{% block content %}
+    {% if status %}
+        <h2>{{ status }}</h2>
+    {% else %}
+        <form method="POST" action="/app1/add_attendance/{{rollno}}/" style="border:1px solid black; background-color: #c3e2cb; width: 30%; padding: 10px">
+            {% csrf_token %}
+            <div style="margin-bottom:10px;text-align:center;font-weight:bold;font-size:20px">Enter Attendance Here for {{name}}</div>
+            <br/>
+            <div>
+                <label>Date: </label>
+                <input name="date" type="text" />
+            </div>
+            <br/>
+            <div>
+                <label>Attendance: </label>
+                <select name="attendance" type="text" />
+                    <option value="present">Present</option>
+                    <option value="Absent">Absent</option>
+                </select>
+            </div>
+            <br/>
+            <input type="submit" />
+        </form>
+    {% endif %}
+    <div>
+        <a href="/app1/showstudents">See Exisitng Students Details</a>
+    </div>
+{% endblock %}

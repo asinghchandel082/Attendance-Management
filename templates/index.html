@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+    <form method="POST" action="/app1/submitdata" style="border:1px solid black; background-color: #c3e2cb; width: 30%; padding: 10px">
+        {% csrf_token %}
+        <div>
+            <label>Name: </label>
+            <input name="name" type="text" />
+        </div>
+        <br/>
+        <div>
+            <label>Address: </label>
+            <textarea name="address" placeholder="write something here"></textarea>
+        </div>
+        <br/>
+        <div>
+            <label>Class: </label>
+            <input name="class" type="text" />
+        </div>
+        <br/>
+        <div>
+            <label>Phone: </label>
+            <input name="phone" type="text" />
+        </div>
+        <br/>
+        <div>
+            <label>Gender: </label>
+            <input name="gender" type='radio' value="M" > <label>M</label>
+            <input name="gender" type='radio' value="F" > <label>F</label>
+        </div>
+        <br/>
+        <input type="submit" />
+    </form>
+    
+    
+    <div>
+        <a href="/app1/showstudents">See Exisitng Students Details</a>
+    </div>
+{% endblock %}

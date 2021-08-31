@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Response Page{% endblock %}
+
+{% block content %}
+    {% if error %}
+        <h2>There is an error in following fields: {{error}}</h2>
+    {% else %}
+        <h2>{{success}}</h2>
+        <a href="/app1/showstudents">See Details</a>
+    {% endif %}
+{% endblock %}

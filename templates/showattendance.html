@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Students Details Page{% endblock %}
+
+{% block content %}
+    {% if details %}
+        <table style="border:1px solid black; width:50%; background-color: #fbe2da">
+            <tr>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">RollNo</td>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">Name</td>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">Date</td>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">Attendance</td>
+            </tr>
+        {% for i in details %}
+            <tr>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">{{i.rollno}}</td>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">{{i.name}}</td>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">{{i.date}}</td>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">{{i.attendance}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <h2>{{status}}</h2>
+    {% endif %}
+    <div>
+        <a href="/app1/showstudents">See Students Details</a>
+    </div>
+{% endblock %}

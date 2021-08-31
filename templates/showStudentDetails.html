@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Students Details Page{% endblock %}
+
+{% block content %}
+    {% if details %}
+        <table style="border:1px solid black; width:50%; background-color: #fbe2da">
+            <tr>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">RollNo</td>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">Name</td>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">Address</td>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">Class</td>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">Phone</td>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">Gender</td>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">Add Attendance</td>
+            </tr>
+        {% for i in details %}
+            <tr>
+                <td style="border:1px solid black;padding:2px;font-weight:bold"><a href="/app1/show_attendance/{{i.rollno}}">{{i.rollno}}</a></td>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">{{i.name}}</td>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">{{i.address}}</td>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">{{i.class}}</td>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">{{i.phone}}</td>
+                <td style="border:1px solid black;padding:2px;font-weight:bold">{{i.gender}}</td>
+                <td style="border:1px solid black;padding:2px;font-weight:bold"><label><a href="/app1/add_attendance/{{i.rollno}}">+</a></label></td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+    <div>
+        <a href="/app1">Go to Home Page</a>
+    </div>
+{% endblock %}
